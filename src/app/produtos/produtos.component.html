@@ -1,0 +1,27 @@
+<h2 class="text-center text-success">Produtos</h2>
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <ng-container *ngFor="let produto of ListaProdutos">
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ produto.nome }}</h5>
+                        <p class="card-text">{{ produto.descricao }}</p>
+                        <p class="card-text"><strong>Preço:</strong> R$ {{ produto.preco.toFixed(2) }}</p>
+                        <p class="card-text">
+                            <strong>Estoque:</strong>
+                            <span class="text-{{ produto.emEstoque ? 'success' : 'danger' }}">
+                                {{ produto.emEstoque ? 'Disponível' : 'Fora de Estoque' }}
+                            </span>
+                        </p>
+                        <button class="btn" [ngClass]="produto.emEstoque ? 'btn-success' : 'btn-secondary'"
+                            [disabled]="!produto.emEstoque" (click)="redirecionarProdutoDetalhe(produto.id)">
+                            Comprar agora
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>

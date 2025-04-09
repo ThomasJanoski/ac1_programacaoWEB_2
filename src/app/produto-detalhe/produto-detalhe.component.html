@@ -1,0 +1,22 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h3 class="card-title text-success">{{ InfoProduto.nome }}</h3>
+                    <p class="card-text">{{ InfoProduto.descricao }}</p>
+                    <p class="card-text">
+                        <strong>Preço:</strong> R$ {{ InfoProduto.preco.toFixed(2) }}
+                    </p>
+                    <p class="card-text">
+                        <strong>Disponibilidade:</strong>
+                        <span class="text-{{ InfoProduto.emEstoque ? 'success' : 'danger' }}">
+                            {{ InfoProduto.emEstoque ? 'Em estoque' : 'Fora de estoque' }}
+                        </span>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
